@@ -1,0 +1,16 @@
+{
+    "name": "asana-wip-limite",
+    "version": "1.0",
+    "manifest_version": 2,
+    "permissions": [
+        "activeTab"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["https://app.asana.com/*"],
+            "js": [
+                "src/content.js"
+            ]
+        }
+    ]
+}
