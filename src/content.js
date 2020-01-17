@@ -32,9 +32,8 @@ function changeColumnBackgroundColor(column, color) {
     column.style.backgroundColor = color
 }
 
-let columns = getBoardColumns()
-
-columns.forEach(function(column) {
+function initWipLimit(column) {
+   
     let headerName = getHeaderName(column)
     let totalCards = totalColumnCards(column)
 
@@ -45,4 +44,26 @@ columns.forEach(function(column) {
     if (hasWipLimit(headerName) && totalCards > getWipLimit(headerName)) {
         changeColumnBackgroundColor(column, COLOR_RED)
     }
-})
+}
+
+function loopColumns() {
+    let columns = getBoardColumns()
+    columns.forEach(function(column) {
+        initWipLimit(column)
+    })
+}
+
+function initObserver() {
+    
+    let observerConfig = {childList: true, subtree: true}
+    let observer = new MutationObserver(function() {
+        loopColumns()
+    });
+    
+    let boardColumns = document.querySelectorAll('.BoardBody-column')
+    for (i = 0; i < boardColumns.length; i++) {
+        observer.observe(boardColumns[i], observerConfig);
+    }
+}
+
+initObserver()
