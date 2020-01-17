@@ -1,5 +1,6 @@
 const COLOR_RED = '#FC636B'
 const COLOR_YELLOW = '#FFB900'
+const COLOR_DEFAULT = '#F6F8F9'
 
 function getBoardColumns() {
     return document.querySelectorAll('.BoardBody-columnDraggableItemWrapper')
@@ -43,6 +44,10 @@ function initWipLimit(column) {
     
     if (hasWipLimit(headerName) && totalCards > getWipLimit(headerName)) {
         changeColumnBackgroundColor(column, COLOR_RED)
+    } 
+    
+    if (hasWipLimit(headerName) && totalCards < getWipLimit(headerName)) {
+        changeColumnBackgroundColor(column, COLOR_DEFAULT)
     }
 }
 
