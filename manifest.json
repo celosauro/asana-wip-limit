@@ -12,5 +12,10 @@
                 "src/content.js"
             ]
         }
-    ]
+    ],
+    "icons": {
+        "128": "Favicon@3x.png",
+        "16": "Favicon@3x.png",
+        "48": "Favicon@3x.png"
+     }
 }
