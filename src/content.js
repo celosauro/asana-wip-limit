@@ -1,6 +1,6 @@
-const COLOR_RED = '#FC636B'
-const COLOR_YELLOW = '#FFB900'
-const COLOR_DEFAULT = '#F6F8F9'
+const DANGER_COLOR = '#FC636B'
+const WARNING_COLOR = '#FFB900'
+const DEFAULT_COLOR = '#F6F8F9'
 
 function getBoardColumns() {
     return document.querySelectorAll('.BoardBody-columnDraggableItemWrapper')
@@ -39,15 +39,15 @@ function initWipLimit(column) {
     let totalCards = totalColumnCards(column)
 
     if (hasWipLimit(headerName) && totalCards == getWipLimit(headerName)) {
-        changeColumnBackgroundColor(column, COLOR_YELLOW)
+        changeColumnBackgroundColor(column, WARNING_COLOR)
     }
     
     if (hasWipLimit(headerName) && totalCards > getWipLimit(headerName)) {
-        changeColumnBackgroundColor(column, COLOR_RED)
+        changeColumnBackgroundColor(column, DANGER_COLOR)
     } 
     
     if (hasWipLimit(headerName) && totalCards < getWipLimit(headerName)) {
-        changeColumnBackgroundColor(column, COLOR_DEFAULT)
+        changeColumnBackgroundColor(column, DEFAULT_COLOR)
     }
 }
 
