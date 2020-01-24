@@ -21,6 +21,8 @@ Spotlight board columns when hit WIP limit
 * Open a board
 * In a column header title, add `[N]` where `N` is a limit of cards in that board column
 
+![Screenshot](/screenshot.png)
+
 ## License
 
 This project is licensed under the terms of the [**MIT**](https://opensource.org/licenses/MIT) license.
